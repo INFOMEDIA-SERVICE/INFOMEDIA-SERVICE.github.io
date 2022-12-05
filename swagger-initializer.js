@@ -13,7 +13,10 @@ window.onload = function() {
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-    layout: "StandaloneLayout"
+    layout: "StandaloneLayout",
+    tagsSorter : "alpha",
+    operationsSorter : "alpha",
+    docExpansion : "none"
   });
 
   //</editor-fold>
