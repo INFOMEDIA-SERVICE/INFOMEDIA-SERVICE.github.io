@@ -1,0 +1,129 @@
+
+<h2>Descuento</h2>
+<ul class="parameter">
+  <li class="param-required-false">fechaCreado : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">creadoPor : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">fechaModificado : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">modificadoPor : String
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">id : UUID
+    <br/>id del descuento
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">nombre : String
+    <br/>nombre del descuento
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">tiposProducto : List
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">aplicarConCodigo : Boolean
+    <br/>determina si el descuento se aplica usando el codigo, de lo contrario se aplicara a todas las compras de productos que cumplan con las condiciones
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">codigo : String
+    <br/>codigo del descuento
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">aplicarConVigencia : Boolean
+    <br/>determina si el descuento se aplica usando vigencia de tiempo, de lo contrario se aplicara a todas las compras de productos sin importar la fecha
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">vigenciaInicio : String
+    <br/>fecha de inicio de vigencia del descuento
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">vigenciaFin : String
+    <br/>fecha de finalizacion de vigencia del descuento
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">tipo : String
+    <br/>tipo de descuento
+      <dl class="param-enum">
+        <dt>Enum:
+            <dd>PORCENTAJE</dd>
+            <dd>MONTO_FIJO</dd>
+        </dt>
+      </dl>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">valor : Double
+    <br/>valor del descuento
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">consumoMax : Integer
+    <br/>numero de consumos maximo del descuento, 0 para consumo ilimitado
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">consumoMaxCliente : Integer
+    <br/>numero de consumos maximo por cliente, 0 para consumo ilimitado
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">consumo : Integer
+    <br/>numero de consumos realizados hasta el momento
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">estado : String
+    <br/>estado del descuento
+      <dl class="param-enum">
+        <dt>Enum:
+            <dd>INACTIVO</dd>
+            <dd>ACTIVO</dd>
+        </dt>
+      </dl>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">clientesObjetivo : Boolean
+    <br/>determina si el descuento se aplica a los clientes objetivo, de lo contrario se aplicara a todos los clientes
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">clientesCompraronEnFechas : Boolean
+    <br/>determina si los clientes objetivo seran los que hayan comprado dentro de el rango de fechas especificado tener compras en fechas especificas (si/no)
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">ccefFechaInicio : String
+    <br/>fecha de inicio en la que los clientes objetivo compraron
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">ccefFechaFin : String
+    <br/>fecha de finalizacion en la que los clientes objetivo compraron
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">clientesEspecificos : Boolean
+    <br/>determina si los clientes objetivo seran clientes especificos (si/no)
+  </li>
+</ul>
