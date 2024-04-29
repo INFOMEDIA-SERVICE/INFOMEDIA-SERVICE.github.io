@@ -1,15 +1,21 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "pca-api",
-        "description": "Parque Caribe Aventura API",
+        "title": "PCA - Ingregracion Partners",
+        "description": "",
         "contact": {
             "name": "Infomedia",
             "url": "https://www.infomediaservice.com/"
         },
         "version": "1.0"
     },
-    "servers": [],
+    "servers": [
+        {
+            "url": "https://olimpo.infomediaservice.online/backenddev/",
+            "description": "Servidor de desarrollo",
+            "variables": {}
+        }
+    ],
     "tags": [
         {
             "name": "Autenticacion",
