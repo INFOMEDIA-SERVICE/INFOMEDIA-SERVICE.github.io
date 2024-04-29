@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "PCA - Ingregracion Partners",
+        "title": "PCA - Integracion Partners",
         "description": "",
         "contact": {
             "name": "Infomedia",
@@ -12,8 +12,7 @@
     "servers": [
         {
             "url": "https://olimpo.infomediaservice.online/backenddev/",
-            "description": "Servidor de desarrollo",
-            "variables": {}
+            "description": "Servidor de desarrollo"
         }
     ],
     "tags": [
@@ -48,7 +47,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/IdMessageResponse"
                                 }
@@ -85,7 +84,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/IdMessageResponse"
                                 }
@@ -122,7 +121,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/LoginResponse"
                                 }
@@ -154,7 +153,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/TokenRefreshResponse"
                                 }
@@ -176,7 +175,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Partner"
                                 }
@@ -214,7 +213,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ImageBase64Response"
                                 }
@@ -280,7 +279,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/PageVenta"
                                 }
@@ -346,7 +345,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/PageTipoVehiculo"
                                 }
@@ -412,7 +411,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/PageTipoServicioParqueadero"
                                 }
@@ -478,7 +477,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/PageTipoCasilla"
                                 }
@@ -544,7 +543,7 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/PageTipoBoleta"
                                 }
@@ -610,9 +609,75 @@
                     "200": {
                         "description": "OK",
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/PageReserva"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT_Token": []
+                    }
+                ]
+            }
+        },
+        "/api/partner/buscarPartner": {
+            "get": {
+                "tags": [
+                    "Partner"
+                ],
+                "summary": "Buscar partner usando filtros de busqueda.",
+                "externalDocs": {
+                    "description": "Search filter sintax",
+                    "url": "https://infomedia-service.github.io/docs/filter/v2/syntax.html"
+                },
+                "operationId": "getBuscarPartner",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PagePartner"
                                 }
                             }
                         }
