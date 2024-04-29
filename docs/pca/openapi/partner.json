@@ -12,96 +12,12 @@
     "servers": [],
     "tags": [
         {
-            "name": "Pasarela",
-            "description": "Api para la administracion de los registros de pagos por pasarela de pagos."
-        },
-        {
-            "name": "Gestion de recuperacion de contraseña",
-            "description": "Apis para gestionar el restablecimiento de contraseña de usuario"
-        },
-        {
-            "name": "RFID",
-            "description": "Api para gestion de RFID"
-        },
-        {
-            "name": "Gestion de Clientes",
-            "description": "Api para gestionar la informacion de los clientes."
-        },
-        {
-            "name": "Facturacion",
-            "description": "Api para gestionar datos de facturas."
-        },
-        {
-            "name": "Misc",
-            "description": "Apis con utilidades variadas."
-        },
-        {
-            "name": "Ventas Masivas",
-            "description": "Apis para gestion de ventas masivas."
-        },
-        {
             "name": "Autenticacion",
             "description": "Api para el manejo de acceso y autenticacion a las Apis."
         },
         {
-            "name": "Gestion de Hikcentral",
-            "description": "Api para gestionar la integracion con la plataforma de Hikcentral."
-        },
-        {
-            "name": "Lector rfid lockers",
-            "description": "Api para manejo de lectores rfid de lockers"
-        },
-        {
-            "name": "Boleteria",
-            "description": "Api para el manejo de reservas, boletas y visitantes."
-        },
-        {
-            "name": "Siigo",
-            "description": "Api para gestionar integracion con facturacion eletronica Siigo."
-        },
-        {
-            "name": "Gestion de Usuarios",
-            "description": "Apis para gestionar la informacion de cuentas de usuario, roles y permisos."
-        },
-        {
-            "name": "Lockers",
-            "description": "Api para manejo de lockers"
-        },
-        {
-            "name": "Gestion de operarios parqueadero",
-            "description": "Apis para gestionar los operadores de parqueadero"
-        },
-        {
-            "name": "Reportes",
-            "description": "Apis para la generacion de reportes."
-        },
-        {
-            "name": "Impresora",
-            "description": "Api para manejo de impresoras"
-        },
-        {
             "name": "Partner",
             "description": "Api integracion con partners en la venta de boleteria."
-        },
-        {
-            "name": "Contenido",
-            "description": "Apis para consumir o cargar contenido en el servidor."
-        },
-        {
-            "name": "Parqueadero",
-            "description": "Api para el manejo del parqueadero."
-        },
-        {
-            "name": "Correo",
-            "description": "Api para el envio de correo electronico."
-        },
-        {
-            "name": "Taquilla",
-            "description": "Apis para la administracion de taquillas."
-        },
-        {
-            "name": "Configuracion General",
-            "description": "Api para gestionar la configuracion global de la aplicacion."
         }
     ],
     "paths": {
