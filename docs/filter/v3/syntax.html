@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Syntax Documentation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Syntax</h2>
+
+    <h3>Fields</h3>
+    <p><code>field</code>, <code>field.nestedField</code></p>
+
+    <h3>Inputs</h3>
+    <p><code>123</code>, <code>-321.123</code>, <code>true</code>, <code>false</code>, <code>'hello world'</code>, <code>'escape \' quote'</code>, <code>'1-01-2023'</code></p>
+
+    <h3>Collections</h3>
+    <p><code>[1, 2, 3]</code>, <code>[field, ['x', 'y'], 99]</code></p>
+
+    <h3>Functions</h3>
+    <p><code>f()</code>, <code>f(x)</code>, <code>f(x, y)</code></p>
+
+    <h3>Placeholders</h3>
+    <p><code>`` `place_holder` ``</code></p>
+
+    <h3>Priority</h3>
+    <p><code>x and (y or z)</code></p>
+
+    <h3>Prefix Operators</h3>
+    <p><code>op expr</code>, <code>not ready</code></p>
+
+    <h3>Infix Operators</h3>
+    <p><code>expr op expr</code>, <code>x and y</code></p>
+
+    <h3>Postfix Operators</h3>
+    <p><code>expr op</code>, <code>field is null</code></p>
+
+    <h3>Common Language</h3>
+    <p>Below are listed the operators and functions which are supported by all integrations (JPA and Mongo). Integrations may extend this common language.</p>
+
+    <h3>Logical Operators</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Literal</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>and</td>
+                <td>and's two expressions</td>
+                <td>status : 'active' <b>and</b> createdAt > '1-1-2000'</td>
+            </tr>
+            <tr>
+                <td>or</td>
+                <td>or's two expressions</td>
+                <td>value ~ '*hello*' <b>or</b> name ~ '*world*'</td>
+            </tr>
+            <tr>
+                <td>not</td>
+                <td>not's an expression</td>
+                <td><b>not</b> (id > 100 or category.order is null)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Value Comparators</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Literal</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>~</td>
+                <td>checks if the left (string) expression is similar to the right (string) expression</td>
+                <td>catalog.name <b>~</b> '*electronic*'</td>
+            </tr>
+            <tr>
+                <td>~~</td>
+                <td>similar to the previous operator but case insensitive</td>
+                <td>catalog.name <b>~~</b> 'ElEcTroNic*'</td>
+            </tr>
+            <tr>
+                <td>:</td>
+                <td>checks if the left expression is equal to the right expression</td>
+                <td>id <b>:</b> 5</td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>checks if the left expression is not equal to the right expression</td>
+                <td>username <b>!</b> 'torshid'</td>
+            </tr>
+            <tr>
+                <td>></td>
+                <td>checks if the left expression is greater than the right expression</td>
+                <td>distance <b>></b> 100</td>
+            </tr>
+            <tr>
+                <td>>:</td>
+                <td>checks if the left expression is greater or equal to the right expression</td>
+                <td>distance <b>>:</b> 100</td>
+            </tr>
+            <tr>
+                <td><</td>
+                <td>checks if the left expression is smaller than the right expression</td>
+                <td>distance <b><</b> 100</td>
+            </tr>
+            <tr>
+                <td><:</td>
+                <td>checks if the left expression is smaller or equal to the right expression</td>
+                <td>distance <b><:</b> 100</td>
+            </tr>
+            <tr>
+                <td>is null</td>
+                <td>checks if an expression is null</td>
+                <td>status <b>is null</b></td>
+            </tr>
+            <tr>
+                <td>is not null</td>
+                <td>checks if an expression is not null</td>
+                <td>status <b>is not null</b></td>
+            </tr>
+            <tr>
+                <td>is empty</td>
+                <td>checks if the (collection) expression is empty</td>
+                <td>children <b>is empty</b></td>
+            </tr>
+            <tr>
+                <td>is not empty</td>
+                <td>checks if the (collection) expression is not empty</td>
+                <td>children <b>is not empty</b></td>
+            </tr>
+            <tr>
+                <td>in</td>
+                <td>checks if an expression is present in the right expressions</td>
+                <td>status <b>in [</b>'initialized'<b>,</b> 'active'<b>]</b></td>
+            </tr>
+            <tr>
+                <td>not in</td>
+                <td>checks if an expression is not present in the right expressions</td>
+                <td>status <b>not in [</b>'failed'<b>,</b> 'closed'<b>]</b></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Functions</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>size</td>
+                <td>returns the collection's size</td>
+                <td><b>size(</b>accidents<b>)</b></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
