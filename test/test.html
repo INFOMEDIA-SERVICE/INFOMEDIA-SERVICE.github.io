@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture or Upload Image</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        #video {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+        #canvas {
+            display: none;
+        }
+        #preview {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">Capture or Upload Image</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Start Webcam Button -->
+            <button id="startWebcam" class="btn btn-primary btn-block mb-3">Start Webcam</button>
+            <!-- Video element for live preview -->
+            <video id="video" class="d-none" autoplay></video>
+            <!-- Capture Image Button -->
+            <button id="capture" class="btn btn-success btn-block d-none mb-3">Capture Image</button>
+            <!-- Canvas element for capturing the image -->
+            <canvas id="canvas"></canvas>
+            <!-- Image upload -->
+            <div class="form-group">
+                <label for="uploadInput" class="btn btn-secondary btn-block">
+                    Upload Image from Files
+                    <input type="file" id="uploadInput" accept="image/*" class="d-none">
+                </label>
+            </div>
+            <!-- Image preview -->
+            <img id="preview" src="#" alt="Image Preview" class="img-fluid d-none">
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript for webcam and preview -->
+<script>
+    // Get elements
+    const startWebcamButton = document.getElementById('startWebcam');
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const captureButton = document.getElementById('capture');
+    const preview = document.getElementById('preview');
+    const uploadInput = document.getElementById('uploadInput');
+
+    // Start the webcam
+    startWebcamButton.addEventListener('click', async function() {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+        video.classList.remove('d-none');
+        captureButton.classList.remove('d-none');
+    });
+
+    // Capture the image from the video stream
+    captureButton.addEventListener('click', function() {
+        const context = canvas.getContext('2d');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        // Stop the video stream
+        const stream = video.srcObject;
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
+        video.classList.add('d-none');
+        captureButton.classList.add('d-none');
+        // Display the captured image
+        const imageDataURL = canvas.toDataURL('image/png');
+        preview.src = imageDataURL;
+        preview.classList.remove('d-none');
+    });
+
+    // Handle image upload
+    uploadInput.addEventListener('change', function(event) {
+        const input = event.target;
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.classList.remove('d-none');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+</script>
+
+</body>
+</html>
